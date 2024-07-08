@@ -5,13 +5,17 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './HomeScreen';
 import CartScreen from './CartScreen';
+import DrawerHeader from './DrawerHeader';  
+
 const Stack = createStackNavigator();
 const Drawer= createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home"  screenOptions={{
+      <Drawer.Navigator initialRouteName="Home"
+      drawerContent={(props) => <DrawerHeader {...props} />} 
+       screenOptions={{
           headerShown: false,
         }}>
          <Drawer.Screen name="Store" component={HomeScreen} />
